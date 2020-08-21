@@ -1,6 +1,6 @@
 {
     "name": "@airtable/base-schema-block",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "scripts": {
         "lint": "eslint frontend"
     },
@@ -8,7 +8,7 @@
         "@airtable/blocks": "latest",
         "classnames": "^2.2.6",
         "leader-line": "^1.0.5",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "prop-types": "^15.7.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
