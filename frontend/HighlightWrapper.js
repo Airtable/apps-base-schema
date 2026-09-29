@@ -101,7 +101,7 @@ export default function HighlightWrapper({children, dependentLinksByNodeId, link
      * uses event delegation to avoid adding potentially thousands event handlers.
      */
     const onNodeOrLinkMouseOver = useCallback(
-        event => {
+        (event) => {
             const hoveredNode = event.currentTarget.querySelector('svg.TableRow:hover');
             const hoveredLink = event.currentTarget.querySelector('path.Link:hover');
             const hoveredNodeOrLink = hoveredNode || hoveredLink;
@@ -139,7 +139,7 @@ export default function HighlightWrapper({children, dependentLinksByNodeId, link
             if (hoveredNode) {
                 // field/table is hovered
                 const dependentLinks = dependentLinksByNodeId[hoveredNodeOrLinkId] || [];
-                dependentLinks.forEach(link => {
+                dependentLinks.forEach((link) => {
                     idsToHighlight.push(link.id, link.targetId, link.sourceId);
                 });
             } else {
@@ -184,7 +184,7 @@ export default function HighlightWrapper({children, dependentLinksByNodeId, link
     }, [svgPanZoom, configureTooltip]);
 
     useEffect(() => {
-        setHighlightContext(currentHighlightContext => ({
+        setHighlightContext((currentHighlightContext) => ({
             ...currentHighlightContext,
             onNodeOrLinkMouseOver,
             onNodeOrLinkMouseOut,

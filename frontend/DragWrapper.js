@@ -57,7 +57,7 @@ export default function DragWrapper({
             tableElement.parentNode.removeChild(tableElement);
             activeItemContainerElement.appendChild(tableElement);
 
-            const mouseMoveHandler = mouseMoveEvent => {
+            const mouseMoveHandler = (mouseMoveEvent) => {
                 const currentX = Number(tableElement.getAttribute('x'));
                 const currentY = Number(tableElement.getAttribute('y'));
 

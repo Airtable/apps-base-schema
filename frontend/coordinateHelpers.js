@@ -60,8 +60,8 @@ export function getInitialTableCoords(tableConfigsByTableId) {
  * Given a new set of table configs and an old set of table coords, return a comprehensive set of
  * table coordinates that includes new tables missing from the old set of coords.
  *
- * It's likely that a table will be created while this app is not running, in which case our
- * globalConfig-persisted table coordinates will become stale. The next time we run the app,
+ * It's likely that a table will be created while this extension is not running, in which case our
+ * globalConfig-persisted table coordinates will become stale. The next time we run the extension,
  * we want to assign coordinates to these new tables. This helper identifies which tables don't have
  * coordinates assigned, and then remedies that. Any missing tables are positioned in a new column
  * to the right of the current right-most table.
@@ -78,7 +78,7 @@ export function getUpdatedTableCoords(newTableConfigs, oldTableCoords) {
         return oldTableCoords;
     }
     let rightMostTablePosition, topMostTablePosition;
-    Object.values(oldTableCoords).forEach(currentCoords => {
+    Object.values(oldTableCoords).forEach((currentCoords) => {
         if (rightMostTablePosition === undefined || currentCoords.x > rightMostTablePosition) {
             rightMostTablePosition = currentCoords.x;
         }
@@ -138,7 +138,7 @@ export function calculateLinkCoords(link, tableCoordsByTableId, tableConfigsByTa
     // Source is always a field row (never will be a table header)
     const sourceTableCoords = tableCoordsByTableId[link.sourceTableId];
     const sourceTableConfig = tableConfigsByTableId[link.sourceTableId];
-    const sourceFieldIndex = sourceTableConfig.fieldNodes.findIndex(n => n.id === link.sourceId);
+    const sourceFieldIndex = sourceTableConfig.fieldNodes.findIndex((n) => n.id === link.sourceId);
     if (sourceFieldIndex === -1) {
         throw new Error(`Could not find field ${link.sourceId} in table ${link.sourceTableId}`);
     }
@@ -157,7 +157,7 @@ export function calculateLinkCoords(link, tableCoordsByTableId, tableConfigsByTa
         targetYOffset = 0;
     } else {
         const targetFieldIndex = targetTableConfig.fieldNodes.findIndex(
-            n => n.id === link.targetId,
+            (n) => n.id === link.targetId,
         );
         if (targetFieldIndex === -1) {
             throw new Error(`Could not find field ${link.targetId} in table ${link.targetTableId}`);

@@ -21,7 +21,7 @@ export default function TableContainer({tableConfigsByTableId, tableCoordsByTabl
             onMouseMove={onNodeOrLinkMouseOver}
             onMouseOut={onNodeOrLinkMouseOut}
         >
-            {Object.keys(tableConfigsByTableId).map(tableId => {
+            {Object.keys(tableConfigsByTableId).map((tableId) => {
                 return (
                     <SvgTable
                         key={tableId}

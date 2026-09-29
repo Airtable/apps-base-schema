@@ -28,7 +28,7 @@ export default function LinkContainer({linksById, linkPathsByLinkId, enabledLink
             onMouseMove={onNodeOrLinkMouseOver}
             onMouseOut={onNodeOrLinkMouseOut}
         >
-            {Object.values(linksById).map(link => {
+            {Object.values(linksById).map((link) => {
                 const isEnabled = enabledLinksByType[link.type];
 
                 return (

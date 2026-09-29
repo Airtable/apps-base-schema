@@ -59,7 +59,7 @@ export default function SvgTable({coords, tableConfig}) {
                 isHeader={true}
                 rowIndex={0}
                 node={tableConfig.tableNode}
-                onTableRowDrag={e => handleTableDrag(e, tableId)}
+                onTableRowDrag={(e) => handleTableDrag(e, tableId)}
                 canDrag={canDrag}
             />
             {tableConfig.fieldNodes.map((fieldNode, index) => {

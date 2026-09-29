@@ -41,9 +41,9 @@ export default function parseSchema(base) {
     const tableConfigsByTableId = {};
     const dependentLinksByNodeId = {};
 
-    base.tables.forEach(table => {
+    base.tables.forEach((table) => {
         const fieldNodes = [];
-        table.fields.forEach(field => {
+        table.fields.forEach((field) => {
             const fieldNode = {
                 id: field.id,
                 name: field.name,
@@ -111,7 +111,7 @@ export default function parseSchema(base) {
                     // field and the dependent field for each. we consider the target to be the
                     // formula field itself, because other fields feed into its value.
                     const {referencedFieldIds} = field.options;
-                    referencedFieldIds.forEach(dependentFieldId => {
+                    referencedFieldIds.forEach((dependentFieldId) => {
                         const link = {
                             id: createLinkId(field.id, dependentFieldId),
                             sourceId: field.id,
@@ -277,7 +277,7 @@ export default function parseSchema(base) {
 
     // We can't process dependentLinksByNodeId until we've gone through all fields in
     // all tables because of cross-table links (at least 2 passes required).
-    base.tables.forEach(table => {
+    base.tables.forEach((table) => {
         const dependentLinks = table.fields.reduce((result, field) => {
             const links = dependentLinksByNodeId[field.id];
             return links ? result.concat(links) : result;
